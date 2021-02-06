@@ -5,4 +5,5 @@ const reducer = combineReducers({
   employeeData: EmployeeReducer,
 });
 
+export type RootStateType = ReturnType<typeof reducer>;
 export default reducer;
