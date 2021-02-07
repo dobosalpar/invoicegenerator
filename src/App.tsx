@@ -1,7 +1,13 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { AppBar, Toolbar } from '@material-ui/core';
+import {
+  AppBar,
+  Toolbar,
+  Button,
+} from '@material-ui/core';
+
 import theme from 'Styles/theme.json';
+import useLocalized from 'CustomHooks/useLocalized';
 
 const muiTheme = createMuiTheme(theme);
 
@@ -10,7 +16,9 @@ function App() {
     <ThemeProvider theme={muiTheme}>
       <AppBar position="fixed">
         <Toolbar>
-          
+          <Button>
+            {useLocalized('generate_invoice')}
+          </Button>
         </Toolbar>
       </AppBar>
     </ThemeProvider>

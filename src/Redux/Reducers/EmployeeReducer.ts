@@ -2,13 +2,14 @@ import {
   IEmployeeAction,
   CHANGE_EMPLOYEE_DATA
 } from 'Redux/types';
+import { LocaleType } from 'Services/LocalizationService/LocalizationService';
 
 export interface IEmployeeState {
-  name: string,
+  locale: LocaleType,
 }
 
 const initialState: IEmployeeState = {
-  name: '',
+  locale: 'ro_RO',
 };
 
 const employeeReducer = (state = initialState, action: IEmployeeAction): IEmployeeState => {
