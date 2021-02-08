@@ -4,10 +4,13 @@ import {
   AppBar,
   Toolbar,
   Button,
+  Paper,
+  Container,
 } from '@material-ui/core';
 
 import theme from 'Styles/theme.json';
 import useLocalized from 'CustomHooks/useLocalized';
+import './main.scss';
 
 const muiTheme = createMuiTheme(theme);
 
@@ -16,11 +19,19 @@ function App() {
     <ThemeProvider theme={muiTheme}>
       <AppBar position="fixed">
         <Toolbar>
-          <Button>
-            {useLocalized('generate_invoice')}
-          </Button>
+          <Container className="invoice-toolbar">
+            <Button color="inherit">
+              {useLocalized('generate_invoice')}
+            </Button>
+          </Container>
         </Toolbar>
       </AppBar>
+      <Toolbar />
+      <Container >
+        <Paper variant="outlined" className="invoice-paper">
+          alma
+        </Paper>
+      </Container>
     </ThemeProvider>
   );
 }
