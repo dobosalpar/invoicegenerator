@@ -1,8 +1,9 @@
 @mixin invoice-data-field {
-  background-color: $white;
-  transition: background-color 0.4s;
+  transition: border 0.4s;
   padding: 1rem;
+  border: transparent 1px solid;
+  border-radius: 4px;
   &:hover {
-    background-color: $lightGray;
+    border: $lightGray dotted 1px;
   }
 }

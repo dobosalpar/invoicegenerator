@@ -29,7 +29,7 @@ const Dialogue: FC<IDialogue> = ({
   title,
 }) => {
   return (
-    <Dialog open onClose={handleClose} aria-labelledby="form-dialog-title" id={id}>
+    <Dialog open onClose={handleClose} aria-labelledby="form-dialog-title" id={id} fullWidth>
       <DialogTitle id="form-dialog-title">{title}</DialogTitle>
       <DialogContent>
         {body}
