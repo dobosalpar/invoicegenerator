@@ -5,7 +5,7 @@
   "client": "Client/Client",
   "invoice": "Invoice/Factura",
   "address": "Address",
-  "TIN": "TIN",
+  "tin": "TIN",
   "registration_number": "Registration Number",
   "ron_iban": "RON IBAN",
   "swift_code": "SWIFT code",
