@@ -12,5 +12,7 @@
   "bank": "Bank",
   "company_registration_number": "Company Registration Number",
   "unique_taxtpayer_reference": "Unique Taxpayer Reference",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "save": "Save",
+  "edit_employee_info": "Edit employee info"
 }

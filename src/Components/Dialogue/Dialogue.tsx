@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ElementType } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -15,9 +15,10 @@ interface IDialogueAction {
 
 export interface IDialogue {
   id: string,
-  body: FC,
+  body: ElementType,
   handleClose: () => void,
   actions: IDialogueAction[],
+  title: string,
 };
 
 const Dialogue: FC<IDialogue> = ({
@@ -25,10 +26,11 @@ const Dialogue: FC<IDialogue> = ({
   body,
   handleClose,
   actions,
+  title,
 }) => {
   return (
     <Dialog open onClose={handleClose} aria-labelledby="form-dialog-title" id={id}>
-      <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+      <DialogTitle id="form-dialog-title">{title}</DialogTitle>
       <DialogContent>
         {body}
       </DialogContent>

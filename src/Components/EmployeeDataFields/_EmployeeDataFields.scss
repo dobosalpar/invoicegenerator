@@ -1,3 +1,13 @@
 .employee-data-fields {
   @include invoice-data-field;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__fields {
+    &--field {
+
+    }
+  }
 }
