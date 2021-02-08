@@ -1,0 +1,15 @@
+{
+  "print": "Print",
+  "generate_invoice": "Generate invoice",
+  "provider": "Provider/Furnizor",
+  "client": "Client/Client",
+  "invoice": "Invoice/Factura",
+  "address": "Address",
+  "TIN": "TIN",
+  "registration_number": "Registration Number",
+  "ron_iban": "RON IBAN",
+  "swift_code": "SWIFT code",
+  "bank": "Bank",
+  "company_registration_number": "Company Registration Number",
+  "unique_taxtpayer_reference": "Unique Taxpayer Reference"
+}

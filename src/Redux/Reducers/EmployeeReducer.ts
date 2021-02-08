@@ -9,7 +9,7 @@ export interface IEmployeeState {
 }
 
 const initialState: IEmployeeState = {
-  locale: 'ro_RO',
+  locale: 'en_EN',
 };
 
 const employeeReducer = (state = initialState, action: IEmployeeAction): IEmployeeState => {

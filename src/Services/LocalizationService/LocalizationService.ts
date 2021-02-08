@@ -1,6 +1,6 @@
-import Romanian from 'Constants/Romanian.json';
+import English from 'Constants/English.json';
 
-const supportedLocales = ['ro_RO'] as const;
+const supportedLocales = ['en_EN'] as const;
 
 export type LocaleType = typeof supportedLocales[number]
 
@@ -24,11 +24,11 @@ class LocalizationService implements ILocalizationService {
   public getTranslationForLocale(locale: LocaleType, key: string) {
     let currentTranslation = {};
     switch (locale) {
-      case 'ro_RO':
-        currentTranslation = Romanian;
+      case 'en_EN':
+        currentTranslation = English;
         break;
       default:
-        currentTranslation = Romanian;
+        currentTranslation = English;
         break;
     }
     const translatedText = this.getTranslationFromText(currentTranslation, key);
