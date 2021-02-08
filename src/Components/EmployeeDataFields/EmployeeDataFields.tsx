@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 import useLocalized from 'CustomHooks/useLocalized';
 import { RootStateType } from 'Redux/Reducers';
 import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
+import { IDialogueOpener } from 'Components/types';
 
-const EmployeeDataFields = () => {
+interface IEmployeeDataFields extends IDialogueOpener {
+
+}
+
+const EmployeeDataFields: FC<IEmployeeDataFields> = ({
+  setDialogue,
+}) => {
   const {
     address,
     tin,

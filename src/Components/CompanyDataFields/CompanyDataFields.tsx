@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from '@material-ui/core';
 
 import useLocalized from 'CustomHooks/useLocalized';
+import { IDialogueOpener } from 'Components/types';
 
-const CompanyDataFields = () => {
+interface ICompanyDataFields extends IDialogueOpener {
+
+}
+
+const CompanyDataFields: FC<ICompanyDataFields> = ({
+  setDialogue,
+}) => {
   return (
     <div className="company-data-fields">
       <Typography variant="h6">

@@ -11,5 +11,6 @@
   "swift_code": "SWIFT code",
   "bank": "Bank",
   "company_registration_number": "Company Registration Number",
-  "unique_taxtpayer_reference": "Unique Taxpayer Reference"
+  "unique_taxtpayer_reference": "Unique Taxpayer Reference",
+  "cancel": "Cancel"
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -12,6 +12,7 @@ import {
 import CompanyDataFields from 'Components/CompanyDataFields/CompanyDataFields';
 import EmployeeDataFields from 'Components/EmployeeDataFields/EmployeeDataFields';
 import InvoiceDataFields from 'Components/InvoiceDataFields/InvoiceDataFields';
+import Dialogue, { IDialogue } from 'Components/Dialogue/Dialogue';
 import theme from 'Styles/theme.json';
 import useLocalized from 'CustomHooks/useLocalized';
 import './main.scss';
@@ -19,8 +20,11 @@ import './main.scss';
 const muiTheme = createMuiTheme(theme);
 
 function App() {
+  const [dialogue, setDialogue] = useState<IDialogue>();
+
   return (
     <ThemeProvider theme={muiTheme}>
+      {dialogue && <Dialogue {...dialogue} />}
       <AppBar position="fixed">
         <Toolbar>
           <Container className="invoice-toolbar">
@@ -35,13 +39,13 @@ function App() {
         <Paper variant="outlined" className="invoice-paper">
           <Grid container spacing={2}>
             <Grid item xs={6}>
-              <EmployeeDataFields />
+              <EmployeeDataFields setDialogue={setDialogue} />
             </Grid>
             <Grid item xs={6}>
-              <CompanyDataFields />
+              <CompanyDataFields setDialogue={setDialogue} />
             </Grid>
             <Grid item xs={12}>
-              <InvoiceDataFields />
+              <InvoiceDataFields setDialogue={setDialogue} />
             </Grid>
           </Grid>
         </Paper>
