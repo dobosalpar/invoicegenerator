@@ -1,3 +1,11 @@
+// Global styles
+@import './Styles/colors';
+@import './Styles/mixins';
+
+// Components
+@import './Components//CompanyDataFields//CompanyDataFields';
+@import './Components/EmployeeDataFields/EmployeeDataFields';
+@import './Components/InvoiceDataFields/InvoiceDataFields';
 
 .invoice-toolbar {
   text-align: right;
