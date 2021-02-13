@@ -15,8 +15,12 @@ const renderWithRedux = (Component: FC) => {
   );
 };
 
+export const renderApp = () => {
+  return renderWithRedux(App);
+};
+
 test('renders learn react link', () => {
-  renderWithRedux(App);
+  renderApp();
   const linkElement = screen.getByText('Invoice/Factura');
   expect(linkElement).toBeInTheDocument();
 });

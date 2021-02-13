@@ -33,12 +33,12 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
 
   const handleOpenDialogue = useCallback(() => {
     setDialogue({
-      id: 'edit-company-info-dialogue',
+      id: 'edit-employee-info-dialogue',
       body: () => (<div>alma</div>),
       handleClose: () => setDialogue(undefined),
       title: dialogueTitle,
       actions: [{
-        id: 'edit-company-info-dialogue-save',
+        id: 'edit-employee-info-dialogue-save',
         title: saveText,
         handler: saveEmployeeData,
       }],
@@ -51,7 +51,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
         <Typography variant="h6">
           {useLocalized('provider')}
         </Typography>
-        <IconButton color="primary" onClick={handleOpenDialogue}>
+        <IconButton color="primary" onClick={handleOpenDialogue} data-testid="employee-data-fields-edit-button">
           <EditIcon />
         </IconButton>
       </div>
