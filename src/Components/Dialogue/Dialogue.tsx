@@ -15,7 +15,7 @@ interface IDialogueAction {
 
 export interface IDialogue {
   id: string,
-  body: ElementType,
+  body?: ElementType,
   handleClose: () => void,
   actions: IDialogueAction[],
   title: string,

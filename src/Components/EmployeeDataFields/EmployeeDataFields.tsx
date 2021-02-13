@@ -34,7 +34,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
   const handleOpenDialogue = useCallback(() => {
     setDialogue({
       id: 'edit-employee-info-dialogue',
-      body: () => (<div>alma</div>),
+      // body: () => (<div>alma</div>),
       handleClose: () => setDialogue(undefined),
       title: dialogueTitle,
       actions: [{
