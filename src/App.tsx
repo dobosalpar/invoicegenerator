@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -19,7 +19,11 @@ import './main.scss';
 
 const muiTheme = createMuiTheme(theme);
 
-function App() {
+interface IApp {
+
+};
+
+const App: FC<IApp> = () => {
   const [dialogue, setDialogue] = useState<IDialogue>();
 
   return (
@@ -52,6 +56,6 @@ function App() {
       </Container>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

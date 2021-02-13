@@ -106,7 +106,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default EmployeeDataFields;

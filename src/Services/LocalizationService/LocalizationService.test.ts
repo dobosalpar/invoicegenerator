@@ -2,12 +2,12 @@ import LocalizationService from 'Services/LocalizationService/LocalizationServic
 
 describe('Localization service', () => {
   test('Returns translation correctly for given locale', () => {
-    const translation = LocalizationService.shared().getTranslationForLocale('ro_RO', 'print');
-    expect(translation).toBe('Imprimare');
+    const translation = LocalizationService.shared().getTranslationForLocale('en_EN', 'print');
+    expect(translation).toBe('Print');
   });
 
   test('Returns key if translation not found', () => {
-    const translation = LocalizationService.shared().getTranslationForLocale('ro_RO', 'non_existing_key');
+    const translation = LocalizationService.shared().getTranslationForLocale('en_EN', 'non_existing_key');
     expect(translation).toBe('non_existing_key');
   });
 });
