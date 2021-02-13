@@ -15,9 +15,12 @@ const EditEmployeeDataFields: FC = () => {
     bank: '',
   });
 
-  const handleChange = useCallback(() => {
-
-  }, []);
+  const handleChange = useCallback((e) => {
+    setInvoiceData({
+      ...invoiceData,
+      [e.target.name]: e.target.value,
+    })
+  }, [invoiceData]);
 
   return (
     <div className="edit-employee-datafields">
@@ -26,36 +29,42 @@ const EditEmployeeDataFields: FC = () => {
         label={useLocalized('address')}
         onChange={handleChange}
         margin="normal"
+        name="address"
       />
       <TextField
         value={invoiceData.tin}
         label={useLocalized('tin')}
         onChange={handleChange}
         margin="normal"
+        name="tin"
       />
       <TextField
         value={invoiceData.registration_number}
         label={useLocalized('registration_number')}
         onChange={handleChange}
         margin="normal"
+        name="registration_number"
       />
       <TextField
         value={invoiceData.ron_iban}
         label={useLocalized('ron_iban')}
         onChange={handleChange}
         margin="normal"
+        name="ron_iban"
       />
       <TextField
         value={invoiceData.swift_code}
         label={useLocalized('swift_code')}
         onChange={handleChange}
         margin="normal"
+        name="swift_code"
       />
       <TextField
         value={invoiceData.bank}
         label={useLocalized('bank')}
         onChange={handleChange}
         margin="normal"
+        name="bank"
       />
     </div>
   )
