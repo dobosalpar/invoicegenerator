@@ -7,6 +7,7 @@ import useLocalized from 'CustomHooks/useLocalized';
 import { RootStateType } from 'Redux/Reducers';
 import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 import { IDialogueOpener } from 'Components/types';
+import EditEmployeeDataFields from 'Components/EmployeeDataFields/Blocks/EditEmployeeDataFields';
 
 interface IEmployeeDataFields extends IDialogueOpener {
 
@@ -34,7 +35,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
   const handleOpenDialogue = useCallback(() => {
     setDialogue({
       id: 'edit-employee-info-dialogue',
-      // body: () => (<div>alma</div>),
+      dialogueBody: <EditEmployeeDataFields />,
       handleClose: () => setDialogue(undefined),
       title: dialogueTitle,
       actions: [{

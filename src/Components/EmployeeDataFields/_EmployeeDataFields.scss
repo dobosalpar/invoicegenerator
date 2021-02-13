@@ -1,3 +1,5 @@
+@import './Blocks/EditEmployeeDataFields';
+
 .employee-data-fields {
   @include invoice-data-field;
   &__header {
