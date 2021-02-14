@@ -40,11 +40,11 @@ const Dialogue: FC<IDialogue> = ({
           title,
           handler,
         }) => (
-          <Button key={id} id={id} color="primary" onClick={handler}>
+          <Button key={id} id={id} color="primary" onClick={handler} variant="contained">
             {title}
           </Button>
         ))}
-        <Button onClick={handleClose} color="secondary">
+        <Button onClick={handleClose} color="secondary" variant="contained">
           {useLocalized('cancel')}
         </Button>
       </DialogActions>

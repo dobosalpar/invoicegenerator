@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { Typography, IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import { useSelector } from 'react-redux';
@@ -25,6 +25,15 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
     bank,
   } = useSelector<RootStateType, IInvoiceData>(state => state.employeeData.invoiceData);
 
+  const [invoiceData, setInvoiceData] = useState<IInvoiceData>({
+    address: '',
+    tin: '',
+    registration_number: '',
+    ron_iban: '',
+    swift_code: '',
+    bank: '',
+  });
+
   const saveEmployeeData = useCallback(() => {
 
   }, []);
@@ -35,7 +44,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
   const handleOpenDialogue = useCallback(() => {
     setDialogue({
       id: 'edit-employee-info-dialogue',
-      dialogueBody: <EditEmployeeDataFields />,
+      dialogueBody: <EditEmployeeDataFields localInvoiceData={invoiceData} setLocalInvoiceData={setInvoiceData} />,
       handleClose: () => setDialogue(undefined),
       title: dialogueTitle,
       actions: [{
@@ -44,7 +53,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
         handler: saveEmployeeData,
       }],
     });
-  }, [dialogueTitle, saveEmployeeData, saveText, setDialogue]);
+  }, [dialogueTitle, invoiceData, saveEmployeeData, saveText, setDialogue]);
 
   return (
     <div className="employee-data-fields">
