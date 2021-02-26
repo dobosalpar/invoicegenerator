@@ -17,8 +17,9 @@ export interface IDialogue {
   id: string,
   dialogueBody?: ReactNode,
   handleClose: () => void,
-  actions: IDialogueAction[],
+  actions?: IDialogueAction[],
   title: string,
+  hasCancelButton?: Boolean,
 };
 
 const Dialogue: FC<IDialogue> = ({
@@ -27,7 +28,10 @@ const Dialogue: FC<IDialogue> = ({
   handleClose,
   actions,
   title,
+  hasCancelButton = true,
 }) => {
+  const cancelText = useLocalized('cancel');
+
   return (
     <Dialog open onClose={handleClose} aria-labelledby="form-dialog-title" id={id} fullWidth data-testid={id}>
       <DialogTitle id="form-dialog-title">{title}</DialogTitle>
@@ -35,7 +39,7 @@ const Dialogue: FC<IDialogue> = ({
         {dialogueBody}
       </DialogContent>
       <DialogActions>
-        {actions.map(({
+        {actions && actions.map(({
           id,
           title,
           handler,
@@ -44,9 +48,11 @@ const Dialogue: FC<IDialogue> = ({
             {title}
           </Button>
         ))}
-        <Button onClick={handleClose} color="secondary" variant="contained">
-          {useLocalized('cancel')}
-        </Button>
+        {hasCancelButton && (
+          <Button onClick={handleClose} color="secondary" variant="contained">
+            {cancelText}
+          </Button>
+        )}
       </DialogActions>
     </Dialog>
   );

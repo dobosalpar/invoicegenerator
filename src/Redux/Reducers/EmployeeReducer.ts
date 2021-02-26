@@ -1,6 +1,6 @@
 import { 
   IEmployeeAction,
-  CHANGE_EMPLOYEE_DATA
+  CHANGE_INVOICE_DATA
 } from 'Redux/types';
 import { LocaleType } from 'Services/LocalizationService/LocalizationService';
 
@@ -33,10 +33,10 @@ const initialState: IEmployeeState = {
 const employeeReducer = (state = initialState, action: IEmployeeAction): IEmployeeState => {
   const { type, payload } = action;
   switch (type) {
-    case CHANGE_EMPLOYEE_DATA:
+    case CHANGE_INVOICE_DATA:
       return {
         ...state,
-        ...payload,
+        invoiceData: payload as IInvoiceData,
       };
     default:
       return state;

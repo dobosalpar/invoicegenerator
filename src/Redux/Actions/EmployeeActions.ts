@@ -1,7 +1,7 @@
-import { IEmployeeAction, CHANGE_EMPLOYEE_DATA } from 'Redux/types';
-import { IEmployeeState } from 'Redux/Reducers/EmployeeReducer';
+import { IEmployeeAction, CHANGE_INVOICE_DATA } from 'Redux/types';
+import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 
-export const changeEmployeeData = (employeeData: IEmployeeState): IEmployeeAction => ({
-  type: CHANGE_EMPLOYEE_DATA,
-  payload: employeeData,
+export const setEmployeeData = (invoiceData: IInvoiceData): IEmployeeAction => ({
+  type: CHANGE_INVOICE_DATA,
+  payload: invoiceData,
 });
