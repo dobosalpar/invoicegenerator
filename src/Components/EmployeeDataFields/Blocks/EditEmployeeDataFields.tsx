@@ -7,6 +7,7 @@ import { RootStateType } from 'Redux/Reducers';
 import useLocalized from 'CustomHooks/useLocalized';
 import { IDialogueOpener } from 'Components/types';
 import { setEmployeeData } from 'Redux/Actions/EmployeeActions';
+import ValidationService from 'Services/ValidationService/ValidationService';
 
 interface IEditEmployeeDataFields extends IDialogueOpener {
   
@@ -56,7 +57,12 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
         <TextField
           value={localInvoiceData.tin}
           label={useLocalized('tin')}
-          onChange={handleChange}
+          onChange={(e) => {
+            if (!ValidationService.isNumber(e.target.value)) {
+              return;
+            }
+            handleChange(e)
+          }}
           margin="normal"
           name="tin"
         />
