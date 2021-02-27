@@ -9,7 +9,12 @@
   }
   &__fields {
     &--field {
-
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      .employee-data-field-label {
+        margin-right: 0.5rem;
+      }
     }
   }
 }

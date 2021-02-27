@@ -49,7 +49,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
       </div>
       <div className="employee-data-fields__fields">
         <div className="employee-data-fields__fields--field">
-          <Typography variant="body2">
+          <Typography variant="body2" className="employee-data-field-label">
             <b>{useLocalized('address')}:</b>
           </Typography>
           <Typography variant="body1">
@@ -57,7 +57,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
           </Typography>
         </div>
         <div className="employee-data-fields__fields--field">
-          <Typography variant="body2">
+          <Typography variant="body2" className="employee-data-field-label">
             <b>{useLocalized('tin')}:</b>
           </Typography>
           <Typography variant="body1">
@@ -65,7 +65,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
           </Typography>
         </div>
         <div className="employee-data-fields__fields--field">
-          <Typography variant="body2">
+          <Typography variant="body2" className="employee-data-field-label">
             <b>{useLocalized('registration_number')}:</b>
           </Typography>
           <Typography variant="body1">
@@ -73,7 +73,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
           </Typography>
         </div>
         <div className="employee-data-fields__fields--field">
-          <Typography variant="body2">
+          <Typography variant="body2" className="employee-data-field-label">
             <b>{useLocalized('ron_iban')}:</b>
           </Typography>
           <Typography variant="body1">
@@ -81,7 +81,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
           </Typography>
         </div>
         <div className="employee-data-fields__fields--field">
-          <Typography variant="body2">
+          <Typography variant="body2" className="employee-data-field-label">
             <b>{useLocalized('swift_code')}:</b>
           </Typography>
           <Typography variant="body1">
@@ -89,7 +89,7 @@ const EmployeeDataFields: FC<IEmployeeDataFields> = ({
           </Typography>
         </div>
         <div className="employee-data-fields__fields--field">
-          <Typography variant="body2">
+          <Typography variant="body2" className="employee-data-field-label">
             <b>{useLocalized('bank')}:</b>
           </Typography>
           <Typography variant="body1">
