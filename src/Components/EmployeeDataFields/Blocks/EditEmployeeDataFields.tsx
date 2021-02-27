@@ -53,6 +53,9 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
           onChange={handleChange}
           margin="normal"
           name="address"
+          inputProps={{
+            "data-testid": "edit-employee-datafields-address"
+          }}
         />
         <TextField
           value={localInvoiceData.tin}
@@ -96,7 +99,12 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
         />
       </div>
       <div className="edit-employee-actions">
-        <Button onClick={saveEmployeeData} color="primary" variant="contained">
+        <Button
+          onClick={saveEmployeeData}
+          color="primary"
+          variant="contained"
+          data-testid="edit-employee-actions-save-button"
+        >
           {useLocalized('save')}
         </Button>
         <Button onClick={() => setDialogue(undefined)} color="secondary" variant="contained">
