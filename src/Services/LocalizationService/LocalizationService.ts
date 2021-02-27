@@ -21,7 +21,7 @@ class LocalizationService implements ILocalizationService {
     return this.instance;
   };
 
-  public getTranslationForLocale(locale: LocaleType, key: string) {
+  public getTranslationForLocale(locale: LocaleType, key: string): string {
     let currentTranslation = {};
     switch (locale) {
       case 'en_EN':
@@ -38,7 +38,7 @@ class LocalizationService implements ILocalizationService {
     return translatedText;
   }
 
-  private getTranslationFromText(currentTranslation: ITranslation, key: string) {
+  private getTranslationFromText(currentTranslation: ITranslation, key: string): string {
     return currentTranslation[key];
   }
 }
