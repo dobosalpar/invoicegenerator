@@ -103,11 +103,17 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
           onClick={saveEmployeeData}
           color="primary"
           variant="contained"
+          className="edit-employee-actions__button"
           data-testid="edit-employee-actions-save-button"
         >
           {useLocalized('save')}
         </Button>
-        <Button onClick={() => setDialogue(undefined)} color="secondary" variant="contained">
+        <Button
+          onClick={() => setDialogue(undefined)}
+          color="secondary"
+          variant="contained"
+          className="edit-employee-actions__button"
+        >
           {useLocalized('cancel')}
         </Button>
       </div>
