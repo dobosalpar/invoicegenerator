@@ -8,6 +8,8 @@ import {
   Container,
   Grid,
 } from '@material-ui/core';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 import CompanyDataFields from 'Components/CompanyDataFields/CompanyDataFields';
 import EmployeeDataFields from 'Components/EmployeeDataFields/EmployeeDataFields';
@@ -28,6 +30,7 @@ const App: FC<IApp> = () => {
 
   return (
     <ThemeProvider theme={muiTheme}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
       {dialogue && <Dialogue {...dialogue} />}
       <AppBar position="fixed">
         <Toolbar>
@@ -54,6 +57,7 @@ const App: FC<IApp> = () => {
           </Grid>
         </Paper>
       </Container>
+    </MuiPickersUtilsProvider>
     </ThemeProvider>
   );
 };

@@ -14,5 +14,7 @@
   "unique_taxtpayer_reference": "Unique Taxpayer Reference",
   "cancel": "Cancel",
   "save": "Save",
-  "edit_employee_info": "Edit employee info"
+  "edit_employee_info": "Edit employee info",
+  "date": "Date/Data",
+  "serie_nr": "Seria Nr."
 }
