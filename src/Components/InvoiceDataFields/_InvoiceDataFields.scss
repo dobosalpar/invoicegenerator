@@ -1,3 +1,11 @@
 .invoice-data-fields {
   @include invoice-data-field;
+  &__title-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &--label {
+      margin-right: 0.5rem !important; // Needed to override MUI style just for this case
+    }
+  }
 }

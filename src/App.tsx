@@ -31,32 +31,34 @@ const App: FC<IApp> = () => {
   return (
     <ThemeProvider theme={muiTheme}>
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      {dialogue && <Dialogue {...dialogue} />}
-      <AppBar position="fixed">
-        <Toolbar>
-          <Container className="invoice-toolbar">
-            <Button color="inherit">
-              {useLocalized('generate_invoice')}
-            </Button>
-          </Container>
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
-      <Container >
-        <Paper variant="outlined" className="invoice-paper">
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <EmployeeDataFields setDialogue={setDialogue} />
+      <>
+        {dialogue && <Dialogue {...dialogue} />}
+        <AppBar position="fixed">
+          <Toolbar>
+            <Container className="invoice-toolbar">
+              <Button color="inherit">
+                {useLocalized('generate_invoice')}
+              </Button>
+            </Container>
+          </Toolbar>
+        </AppBar>
+        <Toolbar />
+        <Container >
+          <Paper variant="outlined" className="invoice-paper">
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <EmployeeDataFields setDialogue={setDialogue} />
+              </Grid>
+              <Grid item xs={6}>
+                <CompanyDataFields setDialogue={setDialogue} />
+              </Grid>
+              <Grid item xs={12}>
+                <InvoiceDataFields setDialogue={setDialogue} />
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <CompanyDataFields setDialogue={setDialogue} />
-            </Grid>
-            <Grid item xs={12}>
-              <InvoiceDataFields setDialogue={setDialogue} />
-            </Grid>
-          </Grid>
-        </Paper>
-      </Container>
+          </Paper>
+        </Container>
+      </>
     </MuiPickersUtilsProvider>
     </ThemeProvider>
   );

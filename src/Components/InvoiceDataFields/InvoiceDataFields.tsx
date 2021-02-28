@@ -4,6 +4,7 @@ import { DatePicker } from '@material-ui/pickers';
 
 import useLocalized from 'CustomHooks/useLocalized';
 import { IDialogueOpener } from 'Components/types';
+import { DATE_FORMAT } from 'Constants/Options';
 
 interface IInvoiceDataFields extends IDialogueOpener {
 
@@ -22,13 +23,21 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
       <Typography variant="h4">
         { useLocalized('invoice') }
       </Typography>
-      <Typography variant="body2">
-        { useLocalized('serie_nr') }:
-      </Typography>
-      <Typography variant="body2">
-        { useLocalized('date')}:
-        <DatePicker value={selectedDate} onChange={handleDateChange} />
-      </Typography>
+      <div className="invoice-data-fields__title-row">
+        <Typography variant="body2" className="invoice-data-fields__title-row--label">
+          { useLocalized('serie_nr') }:
+        </Typography>
+      </div>
+      <div className="invoice-data-fields__title-row">
+        <Typography variant="body2" className="invoice-data-fields__title-row--label">
+          { useLocalized('date') }:
+        </Typography>
+        <DatePicker
+          value={selectedDate}
+          onChange={handleDateChange}
+          format={DATE_FORMAT}
+        />
+      </div>
     </div>
   )
 };
