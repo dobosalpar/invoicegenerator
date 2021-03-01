@@ -56,6 +56,7 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
           inputProps={{
             "data-testid": "edit-employee-datafields-address"
           }}
+          autoFocus
         />
         <TextField
           value={localInvoiceData.tin}

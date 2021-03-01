@@ -3,9 +3,10 @@
 @import './Styles/mixins';
 
 // Components
-@import './Components//CompanyDataFields//CompanyDataFields';
+@import './Components//CompanyDataFields/CompanyDataFields';
 @import './Components/EmployeeDataFields/EmployeeDataFields';
 @import './Components/InvoiceDataFields/InvoiceDataFields';
+@import './Components/TopBar/TopBar';
 
 .invoice-toolbar {
   text-align: right;
