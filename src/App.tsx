@@ -1,9 +1,6 @@
 import React, { useState, FC } from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {
-  AppBar,
-  Toolbar,
-  Button,
   Paper,
   Container,
   Grid,
@@ -15,8 +12,8 @@ import CompanyDataFields from 'Components/CompanyDataFields/CompanyDataFields';
 import EmployeeDataFields from 'Components/EmployeeDataFields/EmployeeDataFields';
 import InvoiceDataFields from 'Components/InvoiceDataFields/InvoiceDataFields';
 import Dialogue, { IDialogue } from 'Components/Dialogue/Dialogue';
+import TopBar from 'Components/TopBar/TopBar';
 import theme from 'Styles/theme.json';
-import useLocalized from 'CustomHooks/useLocalized';
 import './main.scss';
 
 const muiTheme = createMuiTheme(theme);
@@ -33,16 +30,7 @@ const App: FC<IApp> = () => {
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <>
         {dialogue && <Dialogue {...dialogue} />}
-        <AppBar position="fixed">
-          <Toolbar>
-            <Container className="invoice-toolbar">
-              <Button color="inherit">
-                {useLocalized('generate_invoice')}
-              </Button>
-            </Container>
-          </Toolbar>
-        </AppBar>
-        <Toolbar />
+        <TopBar setDialogue={setDialogue} />
         <Container >
           <Paper variant="outlined" className="invoice-paper">
             <Grid container spacing={2}>
