@@ -1,4 +1,4 @@
-import React, { FC, useState, useCallback} from 'react';
+import React, { FC, useState, useCallback, useEffect} from 'react';
 import {
   Input,
   InputAdornment,
@@ -6,9 +6,11 @@ import {
   FormHelperText,
   Button,
 } from '@material-ui/core';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { IDialogueOpener } from 'Components/types';
 import { IInvoiceCalculationInfo } from 'Redux/Reducers/EmployeeReducer';
+import { RootStateType } from 'Redux/Reducers';
 import { setInvoiceCalculationInfo } from 'Redux/Actions/EmployeeActions';
 import useLocalized from 'CustomHooks/useLocalized';
 import { CURRENCY } from 'Constants/Options';
@@ -21,15 +23,20 @@ interface IEditInvoiceCalculationInfoFields extends IDialogueOpener {
 const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = ({
   setDialogue,
 }) => {
+  const invoiceDataFromReduxState = useSelector<RootStateType, IInvoiceCalculationInfo>(state => state.employeeData.employeeInfo);
+
   const [invoiceCalcInfo, setInvoiceCalcInfo] = useState<IInvoiceCalculationInfo>({
     base_salary: 0,
     hourly_rate: 0,
     tax: 0,
   });
 
+  useEffect(() => {
+    setInvoiceCalcInfo(invoiceDataFromReduxState);
+  }, [invoiceDataFromReduxState]);
+
   const removeLeadingZero = useCallback((e) => {
     if (e.target.value === '0') {
-      console.log(e.target.value)
       setInvoiceCalcInfo({
         ...invoiceCalcInfo,
         [e.target.name]: '',
@@ -44,9 +51,11 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
     });
   }, [invoiceCalcInfo]);
 
+  const dispatch = useDispatch();
   const saveInvoiceCalculationData = useCallback(() => {
+    dispatch(setInvoiceCalculationInfo(invoiceCalcInfo))
     setDialogue(undefined);
-  }, [setDialogue]);
+  }, [dispatch, invoiceCalcInfo, setDialogue]);
 
   return (
     <>
