@@ -55,10 +55,9 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
   }, [invoiceCalcInfo]);
 
   const handleChange = useCallback((e) => {
-    const value = parseInt(e.target.value, 10);
     setInvoiceCalcInfo({
       ...invoiceCalcInfo,
-      [e.target.name]: value, 
+      [e.target.name]: parseInt(e.target.value, 10), 
     });
   }, [invoiceCalcInfo]);
 
