@@ -16,5 +16,6 @@
   "save": "Save",
   "edit_employee_info": "Edit employee info",
   "date": "Date/Data",
-  "serie_nr": "Seria Nr."
+  "serie_nr": "Seria Nr.",
+  "edit_invoice_calc_info": "Edit invoice calculation info"
 }
