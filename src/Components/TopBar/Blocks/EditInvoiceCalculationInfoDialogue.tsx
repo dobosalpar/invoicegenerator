@@ -81,7 +81,6 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
               }
               handleChange(e)
             }}
-            autoFocus
             type="number"
             onFocus={removeLeadingZero}
             onBlur={addZero}
