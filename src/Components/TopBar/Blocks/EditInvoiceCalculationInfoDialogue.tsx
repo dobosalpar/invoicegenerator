@@ -4,6 +4,7 @@ import {
   InputAdornment,
   FormControl,
   FormHelperText,
+  Button,
 } from '@material-ui/core';
 
 import { IDialogueOpener } from 'Components/types';
@@ -42,6 +43,10 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
       [e.target.name]: parseInt(e.target.value), 
     });
   }, [invoiceCalcInfo]);
+
+  const saveInvoiceCalculationData = useCallback(() => {
+    setDialogue(undefined);
+  }, [setDialogue]);
 
   return (
     <>
@@ -101,6 +106,25 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
           />
           <FormHelperText>{useLocalized('monthly_tax')}</FormHelperText>
         </FormControl>
+      </div>
+      <div className="edit-invoice-calculation-info-dialogue">
+        <Button
+          onClick={saveInvoiceCalculationData}
+          color="primary"
+          variant="contained"
+          className="edit-invoice-calculation-info-dialogue__button"
+          data-testid="edit-invoice-calculation-info-dialogue-save-button"
+        >
+          {useLocalized('save')}
+        </Button>
+        <Button
+          onClick={() => setDialogue(undefined)}
+          color="secondary"
+          variant="contained"
+          className="edit-invoice-calculation-info-dialogue__button"
+        >
+          {useLocalized('cancel')}
+        </Button>
       </div>
     </>
   );
