@@ -51,7 +51,7 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
           value={localInvoiceData.address}
           label={useLocalized('address')}
           onChange={handleChange}
-          margin="normal"
+          margin="dense"
           name="address"
           inputProps={{
             "data-testid": "edit-employee-datafields-address"
@@ -67,35 +67,35 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
             }
             handleChange(e)
           }}
-          margin="normal"
+          margin="dense"
           name="tin"
         />
         <TextField
           value={localInvoiceData.registration_number}
           label={useLocalized('registration_number')}
           onChange={handleChange}
-          margin="normal"
+          margin="dense"
           name="registration_number"
         />
         <TextField
           value={localInvoiceData.ron_iban}
           label={useLocalized('ron_iban')}
           onChange={handleChange}
-          margin="normal"
+          margin="dense"
           name="ron_iban"
         />
         <TextField
           value={localInvoiceData.swift_code}
           label={useLocalized('swift_code')}
           onChange={handleChange}
-          margin="normal"
+          margin="dense"
           name="swift_code"
         />
         <TextField
           value={localInvoiceData.bank}
           label={useLocalized('bank')}
           onChange={handleChange}
-          margin="normal"
+          margin="dense"
           name="bank"
         />
       </div>

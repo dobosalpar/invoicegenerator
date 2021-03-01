@@ -27,6 +27,7 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
 
   const [invoiceCalcInfo, setInvoiceCalcInfo] = useState<IInvoiceCalculationInfo>({
     base_salary: 0,
+    total_salary: 0,
     hourly_rate: 0,
     tax: 0,
   });
@@ -44,10 +45,20 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
     }
   }, [invoiceCalcInfo]);
 
+  const addZero = useCallback((e) => {
+    if (e.target.value === '') {
+      setInvoiceCalcInfo({
+        ...invoiceCalcInfo,
+        [e.target.name]: 0,
+      });
+    }
+  }, [invoiceCalcInfo]);
+
   const handleChange = useCallback((e) => {
+    const value = parseInt(e.target.value, 10);
     setInvoiceCalcInfo({
       ...invoiceCalcInfo,
-      [e.target.name]: parseInt(e.target.value), 
+      [e.target.name]: value, 
     });
   }, [invoiceCalcInfo]);
 
@@ -58,9 +69,9 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
   }, [dispatch, invoiceCalcInfo, setDialogue]);
 
   return (
-    <>
+    <> 
       <div className="edit-invoice-calculation-info-dialogue-fields">
-        <FormControl>
+        <FormControl className="edit-invoice-calculation-info-dialogue-fields__field">
           <Input
             id="standard-adornment-weight"
             value={invoiceCalcInfo.base_salary}
@@ -74,12 +85,32 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
             autoFocus
             type="number"
             onFocus={removeLeadingZero}
+            onBlur={addZero}
             endAdornment={<InputAdornment position="end">{CURRENCY}</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
           />
           <FormHelperText>{useLocalized('base_salary')}</FormHelperText>
         </FormControl>
-        <FormControl>
+        <FormControl className="edit-invoice-calculation-info-dialogue-fields__field">
+          <Input
+            id="standard-adornment-weight"
+            value={invoiceCalcInfo.total_salary}
+            name="total_salary"
+            onChange={(e) => {
+              if (!ValidationService.isNumber(e.target.value)) {
+                return;
+              }
+              handleChange(e)
+            }}
+            type="number"
+            onFocus={removeLeadingZero}
+            onBlur={addZero}
+            endAdornment={<InputAdornment position="end">{CURRENCY}</InputAdornment>}
+            aria-describedby="standard-weight-helper-text"
+          />
+          <FormHelperText>{useLocalized('total_salary')}</FormHelperText>
+        </FormControl>
+        <FormControl className="edit-invoice-calculation-info-dialogue-fields__field">
           <Input
             id="standard-adornment-weight"
             value={invoiceCalcInfo.hourly_rate}
@@ -92,12 +123,13 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
             }}
             type="number"
             onFocus={removeLeadingZero}
+            onBlur={addZero}
             endAdornment={<InputAdornment position="end">{`${CURRENCY}/h`}</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
           />
           <FormHelperText>{useLocalized('hourly_rate')}</FormHelperText>
         </FormControl>
-        <FormControl>
+        <FormControl className="edit-invoice-calculation-info-dialogue-fields__field">
           <Input
             id="standard-adornment-weight"
             value={invoiceCalcInfo.tax}
@@ -110,6 +142,7 @@ const EditInvoiceCalculationInfoFields: FC<IEditInvoiceCalculationInfoFields> = 
             }}
             type="number"
             onFocus={removeLeadingZero}
+            onBlur={addZero}
             endAdornment={<InputAdornment position="end">{CURRENCY}</InputAdornment>}
             aria-describedby="standard-weight-helper-text"
           />

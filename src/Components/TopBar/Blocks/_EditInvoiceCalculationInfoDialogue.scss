@@ -1,6 +1,9 @@
 .edit-invoice-calculation-info-dialogue-fields {
   display: flex;
   flex-direction: column;
+  &__field {
+    margin: 8px 0 4px 0 !important; // Needed to override MUI style just for this case
+  }
 }
 
 .edit-invoice-calculation-info-dialogue {

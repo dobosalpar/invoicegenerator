@@ -16,6 +16,7 @@ export interface IInvoiceData {
 
 export interface IInvoiceCalculationInfo {
   base_salary: number,
+  total_salary: number,
   hourly_rate: number,
   tax: number,
 };
@@ -38,6 +39,7 @@ const initialState: IEmployeeState = {
   },
   employeeInfo: {
     base_salary: 0,
+    total_salary: 0,
     hourly_rate: 0,
     tax: 0,
   },
