@@ -1,6 +1,7 @@
 import { 
   IEmployeeAction,
-  CHANGE_INVOICE_DATA
+  CHANGE_INVOICE_DATA,
+  CHANGE_INVOICE_CALCULATION_INFO,
 } from 'Redux/types';
 import { LocaleType } from 'Services/LocalizationService/LocalizationService';
 
@@ -13,9 +14,16 @@ export interface IInvoiceData {
   bank: string,
 };
 
+export interface IInvoiceCalculationInfo {
+  base_salary: number,
+  hourly_rate: number,
+  tax: number,
+};
+
 export interface IEmployeeState {
   locale: LocaleType,
   invoiceData: IInvoiceData,
+  employeeInfo: IInvoiceCalculationInfo,
 };
 
 const initialState: IEmployeeState = {
@@ -28,6 +36,11 @@ const initialState: IEmployeeState = {
     swift_code: '',
     bank: '',
   },
+  employeeInfo: {
+    base_salary: 0,
+    hourly_rate: 0,
+    tax: 0,
+  },
 };
 
 const employeeReducer = (state = initialState, action: IEmployeeAction): IEmployeeState => {
@@ -37,6 +50,11 @@ const employeeReducer = (state = initialState, action: IEmployeeAction): IEmploy
       return {
         ...state,
         invoiceData: payload as IInvoiceData,
+      };
+    case CHANGE_INVOICE_CALCULATION_INFO:
+      return {
+        ...state,
+        employeeInfo: payload as IInvoiceCalculationInfo,
       };
     default:
       return state;

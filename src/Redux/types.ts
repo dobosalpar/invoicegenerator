@@ -1,4 +1,4 @@
-import { IEmployeeState, IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
+import { IEmployeeState, IInvoiceData, IInvoiceCalculationInfo } from 'Redux/Reducers/EmployeeReducer';
 
 export const CHANGE_EMPLOYEE_DATA = 'CHANGE_EMPLOYEE_DATA';
 interface IEmployeeChangeAction {
@@ -12,4 +12,10 @@ interface IInvoiceDataChangeAction {
   payload: IInvoiceData,
 }
 
-export type IEmployeeAction = IEmployeeChangeAction | IInvoiceDataChangeAction;
+export const CHANGE_INVOICE_CALCULATION_INFO = 'CHANGE_INVOICE_CALCULATION_INFO';
+interface IInvoiceCalculationInfoChangeAction {
+  type: typeof CHANGE_INVOICE_CALCULATION_INFO,
+  payload: IInvoiceCalculationInfo,
+}
+
+export type IEmployeeAction = IEmployeeChangeAction | IInvoiceDataChangeAction | IInvoiceCalculationInfoChangeAction;

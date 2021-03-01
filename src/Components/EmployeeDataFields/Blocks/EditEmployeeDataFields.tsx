@@ -6,7 +6,7 @@ import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 import { RootStateType } from 'Redux/Reducers';
 import useLocalized from 'CustomHooks/useLocalized';
 import { IDialogueOpener } from 'Components/types';
-import { setEmployeeData } from 'Redux/Actions/EmployeeActions';
+import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
 import ValidationService from 'Services/ValidationService/ValidationService';
 
 interface IEditEmployeeDataFields extends IDialogueOpener {
@@ -40,7 +40,7 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
 
   const dispatch = useDispatch();
   const saveEmployeeData = useCallback(() => {
-    dispatch(setEmployeeData(localInvoiceData));
+    dispatch(setInvoiceData(localInvoiceData));
     setDialogue(undefined);
   }, [dispatch, localInvoiceData, setDialogue]);
 

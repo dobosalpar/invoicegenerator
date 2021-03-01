@@ -1,7 +1,16 @@
-import { IEmployeeAction, CHANGE_INVOICE_DATA } from 'Redux/types';
-import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
+import {
+  IEmployeeAction,
+  CHANGE_INVOICE_DATA,
+  CHANGE_INVOICE_CALCULATION_INFO,
+} from 'Redux/types';
+import { IInvoiceData, IInvoiceCalculationInfo } from 'Redux/Reducers/EmployeeReducer';
 
-export const setEmployeeData = (invoiceData: IInvoiceData): IEmployeeAction => ({
+export const setInvoiceData = (invoiceData: IInvoiceData): IEmployeeAction => ({
   type: CHANGE_INVOICE_DATA,
   payload: invoiceData,
+});
+
+export const setInvoiceCalculationInfo = (invoiceCalculationInfo: IInvoiceCalculationInfo): IEmployeeAction => ({
+  type: CHANGE_INVOICE_CALCULATION_INFO,
+  payload: invoiceCalculationInfo,
 });
