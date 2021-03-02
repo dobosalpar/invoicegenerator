@@ -1,3 +1,5 @@
+@import './Blocks/InvoiceTable';
+
 .invoice-data-fields {
   @include invoice-data-field;
   &__title-row {

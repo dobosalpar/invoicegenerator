@@ -32,5 +32,13 @@
 			"disabled": "rgba(0, 0, 0, 0.38)",
 			"hint": "rgba(0, 0, 0, 0.38)"
 		}
-	}
+	},
+  "overrides": {
+    "MuiTableCell": {
+      "root": {
+        "border": "1px solid black",
+        "border-bottom": "1px solid black"
+      }
+    }
+  }
 }

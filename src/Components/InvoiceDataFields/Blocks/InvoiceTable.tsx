@@ -21,7 +21,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
   const invoiceDataFromReduxState = useSelector<RootStateType, IInvoiceCalculationInfo>(state => state.employeeData.employeeInfo);
 
   return (
-    <Table>
+    <Table className="invoice-table">
       <TableHead>
         <TableRow>
           <TableCell>
