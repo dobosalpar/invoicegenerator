@@ -24,7 +24,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
     <Table className="invoice-table">
       <TableHead>
         <TableRow>
-          <TableCell>
+          <TableCell align="center">
             {useLocalized('nr')}
           </TableCell>
           <TableCell align="center">
@@ -50,7 +50,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
       </TableHead>
       <TableBody>
         <TableRow>
-          <TableCell>
+          <TableCell align="center">
             0
           </TableCell>
           <TableCell align="center">
@@ -70,7 +70,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>
+          <TableCell align="center">
             1
           </TableCell>
           <TableCell align="center">
