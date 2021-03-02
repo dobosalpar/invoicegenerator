@@ -4,6 +4,7 @@ import {
   Paper,
   Container,
   Grid,
+  Typography,
 } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
@@ -14,6 +15,7 @@ import InvoiceDataFields from 'Components/InvoiceDataFields/InvoiceDataFields';
 import Dialogue, { IDialogue } from 'Components/Dialogue/Dialogue';
 import TopBar from 'Components/TopBar/TopBar';
 import theme from 'Styles/theme.json';
+import useLocalized from 'CustomHooks/useLocalized';
 import './main.scss';
 
 const muiTheme = createMuiTheme(theme);
@@ -44,6 +46,11 @@ const App: FC<IApp> = () => {
                 <InvoiceDataFields setDialogue={setDialogue} />
               </Grid>
             </Grid>
+            <div className="invoice-footer-description">
+              <Typography variant="caption">
+                <sup>1</sup>{useLocalized('footer_description')}
+              </Typography>
+            </div>
           </Paper>
         </Container>
       </>

@@ -29,5 +29,8 @@
   "unit_price": "Unit Price (without VAT) / Preț unitar (fără TVA)",
   "value": "Value /Valoarea",
   "hours": "hours",
-  "invoice_content_description": "Providing services as per the  Professional Services Contract nr."
+  "invoice_content_description": "Providing services as per the  Professional Services Contract nr.",
+  "total": "Total",
+  "vat": "VAT / TVA",
+  "footer_description": "Non VAT taxable in Romania / Neimpozabil TVA in Romania"
 }

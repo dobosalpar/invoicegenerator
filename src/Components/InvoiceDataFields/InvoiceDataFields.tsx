@@ -4,7 +4,7 @@ import { DatePicker } from '@material-ui/pickers';
 
 import useLocalized from 'CustomHooks/useLocalized';
 import { IDialogueOpener } from 'Components/types';
-import { DATE_FORMAT } from 'Constants/Options';
+import { DATE_FORMAT, CURRENCY } from 'Constants/Options';
 import InvoiceTable from 'Components/InvoiceDataFields/Blocks/InvoiceTable';
 
 interface IInvoiceDataFields extends IDialogueOpener {
@@ -40,6 +40,38 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
         />
       </div>
       <InvoiceTable />
+      <div className="invoice-data-fields__summary">
+        <div className="invoice-data-fields__summary--line">
+          <div className="left">
+            <Typography variant="body1">
+              <b>
+                {useLocalized('vat')}
+              </b>
+            </Typography>
+          </div>
+          <div className="rigth">
+            <b>
+              -<sup>1</sup>
+            </b>
+          </div>
+        </div>
+        <div className="invoice-data-fields__summary--line">
+          <div className="left">
+            <Typography variant="h6">
+              <b>
+                {useLocalized('total')}
+              </b>
+            </Typography>
+          </div>
+          <div className="rigth">
+            <Typography variant="h6">
+              <b>
+                {CURRENCY}
+              </b>
+            </Typography>
+          </div>
+        </div>
+      </div>
     </div>
   )
 };

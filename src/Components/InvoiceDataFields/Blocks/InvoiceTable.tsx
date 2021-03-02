@@ -86,7 +86,23 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
             {invoiceDataFromReduxState.hourly_rate}
           </TableCell>
           <TableCell align="center">
-            total value
+            value
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell />
+          <TableCell />
+          <TableCell />
+          <TableCell />
+          <TableCell align="center">
+            <b>
+              {useLocalized('total')}
+            </b>
+          </TableCell>
+          <TableCell align="center">
+            <b>
+              total value
+            </b>
           </TableCell>
         </TableRow>
       </TableBody>
