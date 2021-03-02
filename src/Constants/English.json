@@ -21,5 +21,13 @@
   "base_salary": "Base salary",
   "total_salary": "Total salary",
   "hourly_rate": "Hourly rate",
-  "monthly_tax": "Monthly tax" 
+  "monthly_tax": "Monthly tax",
+  "nr": "Nr.",
+  "invoice_content_header": "Name of the product or service / Denumirea produselor sau a serviciilor",
+  "unit": "Unit / U.M..",
+  "quantity": "Quantity / Cantitatea",
+  "unit_price": "Unit Price (without VAT) / Preț unitar (fără TVA)",
+  "value": "Value /Valoarea",
+  "hours": "hours",
+  "invoice_content_description": "Providing services as per the  Professional Services Contract nr."
 }

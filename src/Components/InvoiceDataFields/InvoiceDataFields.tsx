@@ -5,6 +5,7 @@ import { DatePicker } from '@material-ui/pickers';
 import useLocalized from 'CustomHooks/useLocalized';
 import { IDialogueOpener } from 'Components/types';
 import { DATE_FORMAT } from 'Constants/Options';
+import InvoiceTable from 'Components/InvoiceDataFields/Blocks/InvoiceTable';
 
 interface IInvoiceDataFields extends IDialogueOpener {
 
@@ -38,6 +39,7 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
           format={DATE_FORMAT}
         />
       </div>
+      <InvoiceTable />
     </div>
   )
 };
