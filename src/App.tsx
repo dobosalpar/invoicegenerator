@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import locale from 'date-fns/locale/en-US'
 
 import CompanyDataFields from 'Components/CompanyDataFields/CompanyDataFields';
 import EmployeeDataFields from 'Components/EmployeeDataFields/EmployeeDataFields';
@@ -20,6 +21,11 @@ import './main.scss';
 
 const muiTheme = createMuiTheme(theme);
 
+// Week starts on Monday
+if (locale && locale.options) {
+  locale.options.weekStartsOn = 1;
+}
+
 interface IApp {
 
 };
@@ -29,7 +35,7 @@ const App: FC<IApp> = () => {
 
   return (
     <ThemeProvider theme={muiTheme}>
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
       <>
         {dialogue && <Dialogue {...dialogue} />}
         <TopBar setDialogue={setDialogue} />

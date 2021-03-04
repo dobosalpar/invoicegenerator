@@ -1,24 +1,36 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import {
   Table,
   TableHead,
   TableRow,
   TableCell,
   TableBody,
+  Input,
 } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { DatePicker } from '@material-ui/pickers';
 
 import useLocalized from 'CustomHooks/useLocalized';
-import { CURRENCY } from 'Constants/Options';
-import { IInvoiceCalculationInfo } from 'Redux/Reducers/EmployeeReducer';
+import { CURRENCY, DATE_FORMAT } from 'Constants/Options';
+import { IInvoiceCalculationInfo, IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 import { RootStateType } from 'Redux/Reducers';
+import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
+import ValidationService from 'Services/ValidationService/ValidationService';
 
 interface IInvoiceTable {
 
 }
 
 const InvoiceTable: FC<IInvoiceTable> = () => {
-  const invoiceDataFromReduxState = useSelector<RootStateType, IInvoiceCalculationInfo>(state => state.employeeData.employeeInfo);
+  const employeeInfoFromReduxState = useSelector<RootStateType, IInvoiceCalculationInfo>(state => state.employeeData.employeeInfo);
+  const invoiceDataFromReduxState = useSelector<RootStateType, IInvoiceData>(state => state.employeeData.invoiceData);
+  const dispatch = useDispatch();
+
+  const handleDateChange = useCallback((date) => {
+    dispatch(setInvoiceData({
+      contract_date: date,
+    }))
+  }, [dispatch]);
 
   return (
     <Table className="invoice-table">
@@ -75,6 +87,30 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
           </TableCell>
           <TableCell align="center">
             {useLocalized('invoice_content_description')}
+            <Input
+              value={invoiceDataFromReduxState.contract_number}
+              type="number"
+              onChange={(e) => {
+                if (!ValidationService.isNumber(e.target.value)) {
+                  return;
+                }
+                dispatch(setInvoiceData({
+                  contract_number: parseInt(e.target.value),
+                }));
+              }}
+              style={{
+                width: '3rem'
+              }}
+            />
+            {" / "}
+            <DatePicker
+              value={invoiceDataFromReduxState.contract_date}
+              onChange={handleDateChange}
+              format={DATE_FORMAT}
+              style={{
+                width: '6rem'
+              }}
+            />
           </TableCell>
           <TableCell align="center">
             {useLocalized('hours')}
@@ -83,7 +119,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
             nr of hours
           </TableCell>
           <TableCell align="center">
-            {invoiceDataFromReduxState.hourly_rate}
+            {employeeInfoFromReduxState.hourly_rate}
           </TableCell>
           <TableCell align="center">
             value
