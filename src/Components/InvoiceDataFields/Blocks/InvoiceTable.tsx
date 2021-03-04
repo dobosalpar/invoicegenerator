@@ -86,6 +86,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
           </TableCell>
           <TableCell align="center">
             {useLocalized('invoice_content_description')}
+            <br />
             <NumberInput
               value={invoiceDataFromReduxState.contract_number}
               onChange={(contract_number) => {
