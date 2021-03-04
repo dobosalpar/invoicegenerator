@@ -12,6 +12,10 @@ export interface IInvoiceData {
   ron_iban: string,
   swift_code: string,
   bank: string,
+  contract_date: Date | undefined,
+  contract_number: number,
+  serial_number: number,
+  date: Date,
 };
 
 export interface IInvoiceCalculationInfo {
@@ -36,6 +40,10 @@ const initialState: IEmployeeState = {
     ron_iban: '',
     swift_code: '',
     bank: '',
+    contract_date: undefined,
+    contract_number: 0,
+    serial_number: 0,
+    date: new Date(),
   },
   employeeInfo: {
     base_salary: 0,
@@ -51,7 +59,10 @@ const employeeReducer = (state = initialState, action: IEmployeeAction): IEmploy
     case CHANGE_INVOICE_DATA:
       return {
         ...state,
-        invoiceData: payload as IInvoiceData,
+        invoiceData: {
+          ...state.invoiceData,
+          ...payload as IInvoiceData
+        },
       };
     case CHANGE_INVOICE_CALCULATION_INFO:
       return {

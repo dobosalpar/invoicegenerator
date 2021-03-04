@@ -18,7 +18,7 @@ const EditEmployeeDataFields: FC<IEditEmployeeDataFields> = ({
 }) => {
   const invoiceDataFromReduxState = useSelector<RootStateType, IInvoiceData>(state => state.employeeData.invoiceData);
 
-  const [localInvoiceData, setLocalInvoiceData] = useState<IInvoiceData>({
+  const [localInvoiceData, setLocalInvoiceData] = useState<Partial<IInvoiceData>>({
     address: '',
     tin: '',
     registration_number: '',

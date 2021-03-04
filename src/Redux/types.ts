@@ -9,7 +9,7 @@ interface IEmployeeChangeAction {
 export const CHANGE_INVOICE_DATA = 'CHANGE_INVOICE_DATA';
 interface IInvoiceDataChangeAction {
   type: typeof CHANGE_INVOICE_DATA,
-  payload: IInvoiceData,
+  payload: Partial<IInvoiceData>,
 }
 
 export const CHANGE_INVOICE_CALCULATION_INFO = 'CHANGE_INVOICE_CALCULATION_INFO';

@@ -1,11 +1,16 @@
 import React, { FC, useCallback, useState } from 'react';
-import { Typography  } from '@material-ui/core';
+import { Typography, Input  } from '@material-ui/core';
+import { useSelector, useDispatch } from 'react-redux';
 import { DatePicker } from '@material-ui/pickers';
 
 import useLocalized from 'CustomHooks/useLocalized';
 import { IDialogueOpener } from 'Components/types';
 import { DATE_FORMAT, CURRENCY } from 'Constants/Options';
 import InvoiceTable from 'Components/InvoiceDataFields/Blocks/InvoiceTable';
+import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
+import { RootStateType } from 'Redux/Reducers';
+import ValidationService from 'Services/ValidationService/ValidationService';
+import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
 
 interface IInvoiceDataFields extends IDialogueOpener {
 
@@ -14,10 +19,14 @@ interface IInvoiceDataFields extends IDialogueOpener {
 const InvoiceDataFields: FC<IInvoiceDataFields> = ({
   setDialogue,
 }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const invoiceDataFromReduxState = useSelector<RootStateType, IInvoiceData>(state => state.employeeData.invoiceData);
+  const dispatch = useDispatch();
+
   const handleDateChange = useCallback((date) => {
-    setSelectedDate(date);
-  }, []);
+    dispatch(setInvoiceData({
+      date,
+    }))
+  }, [dispatch]);
 
   return (
     <div className="invoice-data-fields">
@@ -28,13 +37,25 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
         <Typography variant="body2" className="invoice-data-fields__title-row--label">
           { useLocalized('serie_nr') }:
         </Typography>
+        <Input
+          value={invoiceDataFromReduxState.serial_number}
+          type="number"
+          onChange={(e) => {
+            if (!ValidationService.isNumber(e.target.value)) {
+              return;
+            }
+            dispatch(setInvoiceData({
+              serial_number: parseInt(e.target.value),
+            }));
+          }}
+        />
       </div>
       <div className="invoice-data-fields__title-row">
         <Typography variant="body2" className="invoice-data-fields__title-row--label">
           { useLocalized('date') }:
         </Typography>
         <DatePicker
-          value={selectedDate}
+          value={invoiceDataFromReduxState.date}
           onChange={handleDateChange}
           format={DATE_FORMAT}
         />
