@@ -5,7 +5,6 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Input,
 } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { DatePicker } from '@material-ui/pickers';
@@ -15,7 +14,7 @@ import { CURRENCY, DATE_FORMAT } from 'Constants/Options';
 import { IInvoiceCalculationInfo, IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 import { RootStateType } from 'Redux/Reducers';
 import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
-import ValidationService from 'Services/ValidationService/ValidationService';
+import NumberInput from 'Components/NumberInput/NumberInput';
 
 interface IInvoiceTable {
 
@@ -87,20 +86,14 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
           </TableCell>
           <TableCell align="center">
             {useLocalized('invoice_content_description')}
-            <Input
+            <NumberInput
               value={invoiceDataFromReduxState.contract_number}
-              type="number"
-              onChange={(e) => {
-                if (!ValidationService.isNumber(e.target.value)) {
-                  return;
-                }
+              onChange={(contract_number) => {
                 dispatch(setInvoiceData({
-                  contract_number: parseInt(e.target.value),
+                  contract_number,
                 }));
               }}
-              style={{
-                width: '3rem'
-              }}
+              short
             />
             {" / "}
             <DatePicker

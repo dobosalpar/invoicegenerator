@@ -1,5 +1,5 @@
 import React, { FC, useCallback } from 'react';
-import { Typography, Input  } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { DatePicker } from '@material-ui/pickers';
 
@@ -9,8 +9,8 @@ import { DATE_FORMAT, CURRENCY } from 'Constants/Options';
 import InvoiceTable from 'Components/InvoiceDataFields/Blocks/InvoiceTable';
 import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 import { RootStateType } from 'Redux/Reducers';
-import ValidationService from 'Services/ValidationService/ValidationService';
 import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
+import NumberInput from 'Components/NumberInput/NumberInput';
 
 interface IInvoiceDataFields extends IDialogueOpener {
 
@@ -37,15 +37,11 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
         <Typography variant="body2" className="invoice-data-fields__title-row--label">
           { useLocalized('serie_nr') }:
         </Typography>
-        <Input
+        <NumberInput
           value={invoiceDataFromReduxState.serial_number}
-          type="number"
-          onChange={(e) => {
-            if (!ValidationService.isNumber(e.target.value)) {
-              return;
-            }
+          onChange={(serial_number) => {
             dispatch(setInvoiceData({
-              serial_number: parseInt(e.target.value),
+              serial_number,
             }));
           }}
         />
