@@ -15,6 +15,7 @@ import { IInvoiceCalculationInfo, IInvoiceData } from 'Redux/Reducers/EmployeeRe
 import { RootStateType } from 'Redux/Reducers';
 import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
 import NumberInput from 'Components/NumberInput/NumberInput';
+import ValidationService from 'Services/ValidationService/ValidationService';
 
 interface IInvoiceTable {
 
@@ -90,6 +91,9 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
             <NumberInput
               value={invoiceDataFromReduxState.contract_number}
               onChange={(contract_number) => {
+                if (!ValidationService.isValidSerialNumber(contract_number)) {
+                  return;
+                }
                 dispatch(setInvoiceData({
                   contract_number,
                 }));

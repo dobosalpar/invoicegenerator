@@ -19,7 +19,7 @@ export const renderApp = () => {
   return renderWithRedux(App);
 };
 
-test('renders learn react link', () => {
+test('renders the app', () => {
   renderApp();
   const linkElement = screen.getByText('Invoice/Factura');
   expect(linkElement).toBeInTheDocument();

@@ -11,6 +11,7 @@ import { IInvoiceData } from 'Redux/Reducers/EmployeeReducer';
 import { RootStateType } from 'Redux/Reducers';
 import { setInvoiceData } from 'Redux/Actions/EmployeeActions';
 import NumberInput from 'Components/NumberInput/NumberInput';
+import ValidationService from 'Services/ValidationService/ValidationService';
 
 interface IInvoiceDataFields extends IDialogueOpener {
 
@@ -40,6 +41,9 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
         <NumberInput
           value={invoiceDataFromReduxState.serial_number}
           onChange={(serial_number) => {
+            if (!ValidationService.isValidSerialNumber(serial_number)) {
+              return;
+            }
             dispatch(setInvoiceData({
               serial_number,
             }));
