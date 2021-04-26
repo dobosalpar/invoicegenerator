@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import {
   Table,
   TableHead,
@@ -90,6 +90,7 @@ const InvoiceTable: FC<IInvoiceTable> = () => {
             <br />
             <NumberInput
               value={invoiceDataFromReduxState.contract_number}
+              dataTestId="invoice-table-contract-number-field"
               onChange={(contract_number) => {
                 if (!ValidationService.isValidSerialNumber(contract_number)) {
                   return;

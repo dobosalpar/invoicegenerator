@@ -16,8 +16,18 @@ describe('ValidationService', () => {
     expect(isNumber).toBe(false);
   });
 
-  test ('Allows empty values', () => {
+  test('Validates numbers correctly: Allows empty values', () => {
     const isNumber = ValidationService.isNumber('');
     expect(isNumber).toBe(true);
+  });
+
+  test('Validates serial numbers correctly: Allows positive values', () => {
+    const isValidSerialNumber = ValidationService.isValidSerialNumber(1);
+    expect(isValidSerialNumber).toBe(true);
+  });
+
+  test('Validates serial numbers correctly: Does not Allow negative values', () => {
+    const isValidSerialNumber = ValidationService.isValidSerialNumber(-1);
+    expect(isValidSerialNumber).toBe(false);
   });
 });

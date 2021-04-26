@@ -7,12 +7,14 @@ interface INumberInput {
   value: number,
   onChange: (number: number) => void,
   short?: Boolean,
+  dataTestId?: string,
 }
 
 const NumberInput: FC<INumberInput> = ({
   value,
   onChange,
   short,
+  dataTestId,
 }) => {
   return (
     <Input
@@ -27,6 +29,9 @@ const NumberInput: FC<INumberInput> = ({
       style={short ? {
         width: '2rem',
       } : undefined}
+      inputProps={{
+        "data-testid": dataTestId,
+      }}
     />
   )
 };

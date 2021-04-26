@@ -40,6 +40,7 @@ const InvoiceDataFields: FC<IInvoiceDataFields> = ({
         </Typography>
         <NumberInput
           value={invoiceDataFromReduxState.serial_number}
+          dataTestId="invoice-data-field-serial-number-field"
           onChange={(serial_number) => {
             if (!ValidationService.isValidSerialNumber(serial_number)) {
               return;
